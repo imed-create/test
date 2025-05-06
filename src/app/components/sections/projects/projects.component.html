@@ -1,0 +1,32 @@
+<div #projectsContainer class="projects">
+  <div class="container-custom">
+    <h2 class="projects-title">Selected Projects</h2>
+    <p class="projects-subtitle">A selection of my recent work spanning web development, 3D visualization, and blockchain applications.</p>
+  </div>
+  
+  <div #projectsTrack class="projects-track">
+    <div class="projects-wrapper">
+      <ng-container *ngFor="let project of projects">
+        <app-project-card
+          [project]="project"
+          (mouseenter)="setActiveProject(project); onMouseEnter()"
+          (mouseleave)="setActiveProject(null); onMouseLeave()"
+          (cursorHover)="cursorHover.emit($event)"
+        ></app-project-card>
+      </ng-container>
+    </div>
+  </div>
+  
+  <div class="container-custom">
+    <div class="projects-cta">
+      <a 
+        href="#" 
+        class="btn btn-outline"
+        (mouseenter)="onMouseEnter()"
+        (mouseleave)="onMouseLeave()"
+      >
+        View All Projects
+      </a>
+    </div>
+  </div>
+</div>

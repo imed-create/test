@@ -1,0 +1,74 @@
+<nav class="navbar" [class.scrolled]="isScrolled" [@fadeInDown]>
+  <div class="container-custom">
+    <div class="navbar-content">
+      <a 
+        href="#home" 
+        class="navbar-logo"
+        (mouseenter)="onMouseEnter()"
+        (mouseleave)="onMouseLeave()"
+      >
+        I.K
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <div class="navbar-links">
+        <ng-container *ngFor="let link of navLinks">
+          <a 
+            [href]="link.href" 
+            class="navbar-link"
+            (mouseenter)="onMouseEnter()"
+            (mouseleave)="onMouseLeave()"
+          >
+            {{ link.name }}
+          </a>
+        </ng-container>
+        
+        <a 
+          href="#contact" 
+          class="btn btn-primary"
+          (mouseenter)="onMouseEnter()"
+          (mouseleave)="onMouseLeave()"
+        >
+          Let's Talk
+        </a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button 
+        class="mobile-menu-button"
+        (click)="toggleMobileMenu()"
+        (mouseenter)="onMouseEnter()"
+        (mouseleave)="onMouseLeave()"
+      >
+        <span class="mobile-menu-icon" [class.open]="mobileMenuOpen"></span>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" *ngIf="mobileMenuOpen" [@mobileMenuAnimation]>
+    <div class="mobile-menu-content">
+      <ng-container *ngFor="let link of navLinks">
+        <a 
+          [href]="link.href" 
+          class="mobile-menu-link"
+          (click)="closeMobileMenu()"
+          (mouseenter)="onMouseEnter()"
+          (mouseleave)="onMouseLeave()"
+        >
+          {{ link.name }}
+        </a>
+      </ng-container>
+      
+      <a 
+        href="#contact" 
+        class="btn btn-primary mobile-menu-cta"
+        (click)="closeMobileMenu()"
+        (mouseenter)="onMouseEnter()"
+        (mouseleave)="onMouseLeave()"
+      >
+        Let's Talk
+      </a>
+    </div>
+  </div>
+</nav>

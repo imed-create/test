@@ -1,0 +1,152 @@
+.contact {
+  padding: 6rem 0;
+}
+
+.contact-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  background: linear-gradient(to right, #FFFFFF, #00BFFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  @media (min-width: 768px) {
+    font-size: 3.5rem;
+  }
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #D1D5DB;
+}
+
+.form-control {
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: #00BFFF;
+    box-shadow: 0 0 0 2px rgba(0, 191, 255, 0.2);
+  }
+  
+  &.is-invalid {
+    border-color: #FF4A4A;
+  }
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
+.submit-button {
+  margin-top: 1rem;
+  
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #FFFFFF;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.success-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: rgba(45, 212, 191, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  border-radius: 0.5rem;
+  color: #2DD4BF;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(0, 191, 255, 0.1);
+  border-radius: 50%;
+}
+
+.info-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+.info-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #D1D5DB;
+}
+
+.footer {
+  margin-top: 6rem;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #D1D5DB;
+}

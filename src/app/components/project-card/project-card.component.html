@@ -1,0 +1,24 @@
+<div class="project-card">
+  <div class="project-image-container">
+    <img [src]="project.image" [alt]="project.title" class="project-image">
+    <div class="project-overlay">
+      <a 
+        [href]="project.link" 
+        target="_blank" 
+        class="btn btn-primary"
+        (mouseenter)="onMouseEnter()"
+        (mouseleave)="onMouseLeave()"
+      >
+        View Project
+      </a>
+    </div>
+  </div>
+  
+  <div class="project-info">
+    <div class="project-header">
+      <h3 class="project-title">{{ project.title }}</h3>
+      <span class="project-category">{{ project.category }}</span>
+    </div>
+    <p class="project-description">{{ project.description }}</p>
+  </div>
+</div>

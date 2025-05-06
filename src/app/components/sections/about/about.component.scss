@@ -1,0 +1,99 @@
+.about {
+  padding: 6rem 0;
+}
+
+.about-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  background: linear-gradient(to right, #FFFFFF, #00BFFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  @media (min-width: 768px) {
+    font-size: 3.5rem;
+  }
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-text {
+  p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #D1D5DB;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.resume-button {
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+
+.section-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #FFFFFF;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skills-section {
+  margin-top: 4rem;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: rgba(0, 191, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 191, 255, 0.1);
+  }
+}
+
+.skill-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.skill-category {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #00BFFF;
+}
