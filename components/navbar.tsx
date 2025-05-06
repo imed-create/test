@@ -197,7 +197,7 @@ export const Navbar = () => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
 
       <style jsx>{`
         .nav-lightning {

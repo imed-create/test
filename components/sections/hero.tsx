@@ -66,7 +66,7 @@ export const Hero = () => {
           end: "bottom top",
           scrub: true,
         },
-      })
+        })
     }, sectionRef)
 
     return () => ctx.revert()
@@ -107,13 +107,13 @@ export const Hero = () => {
             <div className="w-1 h-3 bg-white rounded-full mt-2 animate-bounce" />
           </div>
         </motion.div>
-      </div>
+        </div>
 
       {/* Electric aura effect */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-electric-blue/10 to-transparent opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal/10 to-transparent opacity-50" />
-      </div>
+    </div>
     </section>
   )
 }

@@ -41,7 +41,7 @@ export const Preloader = () => {
       lightning.style.transform = `rotate(${angle}deg) scale(${scale})`
       
       lightningRef.current?.appendChild(lightning)
-      
+
       // Animate lightning
       gsap.to(lightning, {
         scale: scale * 1.5,
@@ -82,7 +82,7 @@ export const Preloader = () => {
 
     // Create periodic lightning
     const createPeriodicLightning = () => {
-      createLightning()
+        createLightning()
       setTimeout(createPeriodicLightning, Math.random() * 500 + 200)
     }
 

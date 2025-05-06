@@ -4,8 +4,11 @@ import { Inter, Montserrat } from "next/font/google"
 import "./globals.css"
 import "@/styles/works.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { ElectricEffects } from "@/components/electric-effects"
 import { Preloader } from "@/components/preloader"
+import { ThunderstormBackground } from "@/components/thunderstorm-background"
+import ElectricBackground from "@/components/electric-background"
+import { MouseCircle } from "@/components/mouse-circle"
+import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
 
 // Font definitions
 const inter = Inter({
@@ -35,11 +38,19 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${montserrat.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <Preloader />
-          <ElectricEffects />
-          <main className="relative">
-            {children}
-          </main>
+          <SmoothScrollProvider>
+            <Preloader />
+            <div className="fixed inset-0 z-0">
+              <ElectricBackground />
+              <div className="absolute inset-0 z-10">
+                <ThunderstormBackground />
+              </div>
+            </div>
+            <MouseCircle />
+            <main className="relative z-20">
+              {children}
+            </main>
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>

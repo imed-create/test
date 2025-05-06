@@ -88,7 +88,7 @@
 
 /* Electric effects */
 .electric-pulse {
-  animation: electric-pulse 2s infinite;
+    animation: electric-pulse 2s infinite;
 }
 
 @keyframes electric-pulse {

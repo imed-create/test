@@ -33,35 +33,35 @@ const ElectricBackground = () => {
 
     particlesGeometry.setAttribute("position", new THREE.BufferAttribute(posArray, 3))
 
-    // Create three particle systems with different colors
-    const blueParticlesMaterial = new THREE.PointsMaterial({
+    // Create three particle systems with cosmic colors
+    const electricBlueMaterial = new THREE.PointsMaterial({
       size: 0.02,
-      color: 0x00bfff,
+      color: 0x00bfff, // Electric blue
       transparent: true,
       blending: THREE.AdditiveBlending,
     })
 
-    const goldParticlesMaterial = new THREE.PointsMaterial({
+    const cosmicPurpleMaterial = new THREE.PointsMaterial({
       size: 0.015,
-      color: 0xfbbf24,
+      color: 0x8a2be2, // Deep cosmic purple
       transparent: true,
       blending: THREE.AdditiveBlending,
     })
 
-    const tealParticlesMaterial = new THREE.PointsMaterial({
+    const nebulaPinkMaterial = new THREE.PointsMaterial({
       size: 0.018,
-      color: 0x2dd4bf,
+      color: 0xff1493, // Deep nebula pink
       transparent: true,
       blending: THREE.AdditiveBlending,
     })
 
-    const blueParticles = new THREE.Points(particlesGeometry, blueParticlesMaterial)
-    const goldParticles = new THREE.Points(particlesGeometry.clone(), goldParticlesMaterial)
-    const tealParticles = new THREE.Points(particlesGeometry.clone(), tealParticlesMaterial)
+    const electricBlueParticles = new THREE.Points(particlesGeometry, electricBlueMaterial)
+    const cosmicPurpleParticles = new THREE.Points(particlesGeometry.clone(), cosmicPurpleMaterial)
+    const nebulaPinkParticles = new THREE.Points(particlesGeometry.clone(), nebulaPinkMaterial)
 
-    scene.add(blueParticles)
-    scene.add(goldParticles)
-    scene.add(tealParticles)
+    scene.add(electricBlueParticles)
+    scene.add(cosmicPurpleParticles)
+    scene.add(nebulaPinkParticles)
 
     // Mouse interaction
     let mouseX = 0
@@ -76,21 +76,21 @@ const ElectricBackground = () => {
     const animate = () => {
       requestAnimationFrame(animate)
 
-      // Rotate particles
-      blueParticles.rotation.y += 0.001
-      blueParticles.rotation.x += 0.0005
-      goldParticles.rotation.y -= 0.0008
-      goldParticles.rotation.x -= 0.0003
-      tealParticles.rotation.y += 0.0005
-      tealParticles.rotation.x -= 0.0007
+      // Rotate particles with different speeds
+      electricBlueParticles.rotation.y += 0.001
+      electricBlueParticles.rotation.x += 0.0005
+      cosmicPurpleParticles.rotation.y -= 0.0008
+      cosmicPurpleParticles.rotation.x -= 0.0003
+      nebulaPinkParticles.rotation.y += 0.0005
+      nebulaPinkParticles.rotation.x -= 0.0007
 
       // Subtle movement based on mouse position
-      blueParticles.rotation.y += mouseX * 0.0002
-      blueParticles.rotation.x += mouseY * 0.0002
-      goldParticles.rotation.y -= mouseX * 0.0001
-      goldParticles.rotation.x -= mouseY * 0.0001
-      tealParticles.rotation.y += mouseX * 0.00015
-      tealParticles.rotation.x += mouseY * 0.00015
+      electricBlueParticles.rotation.y += mouseX * 0.0002
+      electricBlueParticles.rotation.x += mouseY * 0.0002
+      cosmicPurpleParticles.rotation.y -= mouseX * 0.0001
+      cosmicPurpleParticles.rotation.x -= mouseY * 0.0001
+      nebulaPinkParticles.rotation.y += mouseX * 0.00015
+      nebulaPinkParticles.rotation.x += mouseY * 0.00015
 
       renderer.render(scene, camera)
     }
