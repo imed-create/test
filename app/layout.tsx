@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Preloader } from "@/components/preloader"
 import { ThunderstormBackground } from "@/components/thunderstorm-background"
 import ElectricBackground from "@/components/electric-background"
+import InteractiveLightning from "@/components/interactive-lightning" // Added import
 import { MouseCircle } from "@/components/mouse-circle"
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
 
@@ -35,19 +36,22 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${montserrat.variable} font-sans`}>
+    <html lang="en" suppressHydrationWarning style={{ backgroundColor: '#000000' }}>
+      <body className={`${inter.variable} ${montserrat.variable} font-sans`} style={{ backgroundColor: '#000000' }}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <SmoothScrollProvider>
             <Preloader />
-            <div className="fixed inset-0 z-0">
-              <ElectricBackground />
-              <div className="absolute inset-0 z-10">
-                <ThunderstormBackground />
-              </div>
+            <div className="fixed inset-0 z-[-20]"> {/* Parent for deep background effects */}
+              <ElectricBackground /> {/* z-index is -z-10 in its own definition, effectively z-[-20 + (-10)] if parent was 0 */}
             </div>
-            <MouseCircle />
-            <main className="relative z-20">
+            <div className="fixed inset-0 z-[-15]"> {/* Parent for random lightning */}
+              <ThunderstormBackground /> {/* z-index is effectively -15 if its internal structure doesn't add more */}
+            </div>
+            <InteractiveLightning /> {/* z-index is -z-[5] in its own definition, captures pointer events */}
+            
+            <MouseCircle /> {/* This is likely a custom cursor, should be high z-index */}
+            
+            <main className="relative z-20"> {/* Main content on top */}
               {children}
             </main>
           </SmoothScrollProvider>

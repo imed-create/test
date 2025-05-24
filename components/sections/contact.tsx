@@ -174,7 +174,7 @@ export const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-black/50 border border-electric-blue/30 rounded-lg focus:outline-none focus:border-electric-blue transition-colors"
+                className="form-input w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none transition-all duration-300 font-inter text-silver"
                 required
               />
             </div>
@@ -182,7 +182,7 @@ export const Contact = () => {
             <div className="space-y-2">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-silver"
+                className="block text-sm font-medium text-silver font-montserrat"
               >
                 Email
               </label>
@@ -192,7 +192,7 @@ export const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-black/50 border border-electric-blue/30 rounded-lg focus:outline-none focus:border-electric-blue transition-colors"
+                className="form-input w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none transition-all duration-300 font-inter text-silver"
                 required
               />
             </div>
@@ -200,7 +200,7 @@ export const Contact = () => {
             <div className="space-y-2">
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-silver"
+                className="block text-sm font-medium text-silver font-montserrat"
               >
                 Message
               </label>
@@ -210,28 +210,75 @@ export const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={6}
-                className="w-full px-4 py-3 bg-black/50 border border-electric-blue/30 rounded-lg focus:outline-none focus:border-electric-blue transition-colors resize-none"
+                className="form-input w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none transition-all duration-300 resize-none font-inter text-silver"
                 required
               />
             </div>
 
             <motion.button
               type="submit"
-              className="w-full px-6 py-3 bg-electric-blue text-white rounded-lg font-medium hover:bg-opacity-90 transition-colors"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              disabled={isSubmitting}
+              className="form-submit w-full px-6 py-3 bg-electric-blue text-black rounded-lg font-bold font-montserrat hover:bg-gold transition-all duration-300 focus:outline-none relative overflow-hidden"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              Send Message
+              {isSubmitting ? "Sending..." : isSubmitted ? "Message Sent!" : "Send Message"}
+               {/* Energy flow on button */}
+              <div className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 
+                              bg-[conic-gradient(from_90deg_at_50%_50%,#ffd700_-20%,#00ff9d_30%,#00bfff_50%,#ffd700_120%)] 
+                              animate-spin-slow group-focus:opacity-100"></div>
+              <span className="relative z-10">{isSubmitting ? "Sending..." : isSubmitted ? "Message Sent!" : "Send Message"}</span>
             </motion.button>
           </motion.form>
         </div>
       </div>
 
-      {/* Electric aura effect */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-electric-blue/5 to-transparent opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal/5 to-transparent opacity-30" />
+      {/* Cosmic Background & Lightning */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        {/* Static stars */}
+        <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(circle_at_center,_rgba(200,200,255,0.3)_0,_rgba(200,200,255,0.3)_1px,transparent_1px,transparent_100%)] [background-size:20px_20px]"></div>
+        {/* Lightning pulses */}
+        <div className="absolute inset-0 animate-lightning-pulse-bg opacity-0"></div>
       </div>
+      
+      {/* CSS for animations (can be moved to globals.css) */}
+      <style jsx global>{`
+        @keyframes inputPulse {
+          0%, 100% { box-shadow: 0 0 0px theme('colors.electric-blue.DEFAULT_ALPHA_0.3'); border-color: theme('colors.gray.700'); }
+          50% { box-shadow: 0 0 12px theme('colors.electric-blue.DEFAULT'), 0 0 3px theme('colors.electric-blue.DEFAULT') inset; border-color: theme('colors.electric-blue.DEFAULT'); }
+        }
+        .form-input:focus, .form-submit:focus {
+          animation: inputPulse 0.6s ease-out;
+          border-color: theme('colors.electric-blue.DEFAULT'); /* Keep border color during/after pulse */
+        }
+
+        @keyframes energyFlowBorder {
+          0% { border-image-source: linear-gradient(0deg, theme('colors.gold.DEFAULT'), theme('colors.electric-blue.DEFAULT'), theme('colors.teal.DEFAULT')); }
+          25% { border-image-source: linear-gradient(90deg, theme('colors.gold.DEFAULT'), theme('colors.electric-blue.DEFAULT'), theme('colors.teal.DEFAULT')); }
+          50% { border-image-source: linear-gradient(180deg, theme('colors.gold.DEFAULT'), theme('colors.electric-blue.DEFAULT'), theme('colors.teal.DEFAULT')); }
+          75% { border-image-source: linear-gradient(270deg, theme('colors.gold.DEFAULT'), theme('colors.electric-blue.DEFAULT'), theme('colors.teal.DEFAULT')); }
+          100% { border-image-source: linear-gradient(360deg, theme('colors.gold.DEFAULT'), theme('colors.electric-blue.DEFAULT'), theme('colors.teal.DEFAULT')); }
+        }
+        .form-container-energy-flow {
+          border: 3px solid transparent;
+          border-image-slice: 1;
+          animation: energyFlowBorder 4s linear infinite;
+          padding: 1.5rem; /* Adjust padding to be inside the animated border */
+          border-radius: 0.75rem; /* Match form card rounding */
+        }
+        
+        @keyframes lightningPulseBg {
+          0%, 100% { background-color: rgba(0, 255, 157, 0); } /* electric-blue transparent */
+          50% { background-color: rgba(0, 255, 157, 0.05); } /* electric-blue subtle flash */
+        }
+        .animate-lightning-pulse-bg {
+            animation: lightningPulseBg 5s infinite ease-in-out alternate;
+            animation-delay: ${Math.random() * 2}s; /* Random start */
+        }
+        .animate-spin-slow {
+            animation-duration: 5s; /* Slower spin for button energy */
+        }
+      `}</style>
     </section>
   )
 }

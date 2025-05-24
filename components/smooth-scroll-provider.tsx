@@ -1,13 +1,13 @@
 "use client"
 
-import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
+import { useLenis } from "@/hooks/use-lenis"
 
 interface SmoothScrollProviderProps {
   children: React.ReactNode
 }
 
 export const SmoothScrollProvider = ({ children }: SmoothScrollProviderProps) => {
-  useSmoothScroll()
+  useLenis()
 
   return <>{children}</>
 } 

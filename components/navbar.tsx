@@ -122,7 +122,7 @@ export const Navbar = () => {
                   <li>
                     <Link
                       href="/"
-                      className="text-2xl electric-hover"
+                      className="text-xl sm:text-2xl electric-hover" // Responsive text
                       onClick={() => setIsOpen(false)}
                     >
                       Home
@@ -131,7 +131,7 @@ export const Navbar = () => {
                   <li>
                     <Link
                       href="/#about"
-                      className="text-2xl electric-hover"
+                      className="text-xl sm:text-2xl electric-hover" // Responsive text
                       onClick={() => setIsOpen(false)}
                     >
                       About
@@ -140,7 +140,7 @@ export const Navbar = () => {
                   <li>
                     <Link
                       href="/#works"
-                      className="text-2xl electric-hover"
+                      className="text-xl sm:text-2xl electric-hover" // Responsive text
                       onClick={() => setIsOpen(false)}
                     >
                       Works
@@ -149,7 +149,7 @@ export const Navbar = () => {
                   <li>
                     <Link
                       href="/#contact"
-                      className="text-2xl electric-hover"
+                      className="text-xl sm:text-2xl electric-hover" // Responsive text
                       onClick={() => setIsOpen(false)}
                     >
                       Contact
@@ -158,36 +158,36 @@ export const Navbar = () => {
                 </ul>
               </div>
               <div>
-                <h2 className="text-4xl font-bold mb-8 electric-text">
+                <h2 className="text-3xl sm:text-4xl font-bold mb-8 electric-text"> {/* Responsive text */}
                   Connect
                 </h2>
                 <ul className="space-y-4">
                   <li>
                     <a
-                      href="https://github.com/yourusername"
+                      href="https://github.com/yourusername" // Replace with actual username
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-2xl electric-hover"
+                      className="text-xl sm:text-2xl electric-hover" // Responsive text
                     >
                       GitHub
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://linkedin.com/in/yourusername"
+                      href="https://linkedin.com/in/yourusername" // Replace with actual username
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-2xl electric-hover"
+                      className="text-xl sm:text-2xl electric-hover" // Responsive text
                     >
                       LinkedIn
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://twitter.com/yourusername"
+                      href="https://twitter.com/yourusername" // Replace with actual username
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-2xl electric-hover"
+                      className="text-xl sm:text-2xl electric-hover" // Responsive text
                     >
                       Twitter
                     </a>

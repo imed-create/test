@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --black: #000000;
   --dark-blue: #1c2526;
@@ -20,7 +26,8 @@
 
 @layer base {
   body {
-    @apply bg-black text-white;
+    @apply text-white;
+    background-color: var(--black);
     font-family: var(--font-inter);
   }
 
